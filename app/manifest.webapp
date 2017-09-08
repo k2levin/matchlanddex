@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "Match Land Dex",
+  "launch_path": "/index.html",
+  "description": "Info dex for Match Land.",
+  "icons": {
+    "128": "/images/touch/icon-128x128.png"
+  },
+  "developer": {
+    "name": "Kevin Khew",
+    "url": "https://github.com/k2levin/"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Match Land Dex",
+      "description": "Info dex for Match Land."
+    }
+  }
+}

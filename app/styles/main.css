@@ -1,0 +1,48 @@
+.index-max-width {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.hero-max-width {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.mdl-grid-center {
+  justify-content: center;
+}
+
+.hero-card-square.mdl-card {
+  width: 280px;
+  height: 380px;
+  margin: 10px;
+}
+
+.hero-card-square>.alexander-card {
+  color: #fff;
+  background: url('../images/alexander.png') center no-repeat #000;
+}
+
+.hero-card-square>.barrett-card {
+  color: #fff;
+  background: url('../images/barrett.png') center no-repeat #000;
+}
+
+.hero-card-square>.fenrus-card {
+  color: #fff;
+  background: url('../images/fenrus.png') center no-repeat #000;
+}
+
+.hero-card-square>.jade-card {
+  color: #fff;
+  background: url('../images/jade.png') center no-repeat #000;
+}
+
+.hero-card-square>.primm-card {
+  color: #fff;
+  background: url('../images/primm.png') center no-repeat #000;
+}
+
+.full-width {
+  width: 100%;
+}
