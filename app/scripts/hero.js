@@ -52,7 +52,7 @@
         updateStatTable(stats);
       }
     } else {
-      // Return the dummy data since no data is available.
+      // Return the dummy data since no data is available..
     }
   };
   request.open('GET', '/stat.json');
