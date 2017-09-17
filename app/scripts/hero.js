@@ -4,24 +4,13 @@
   'use strict';
 
   var getHeroName = function() {
-    return window.location.search.substr(6);
+    return window.location.search.substr(6).toUpperCase();
   };
 
-  var getStats = function(name, data) {
-    var stats = [];
-    switch (name) {
-      case 'ALEXANDER':
-        stats = data.alexander;
-        break;
-      case 'BARRETT':
-        stats = data.barrett;
-        break;
-      default:
-        window.location.replace('/index.html');
-    }
-
-    return stats;
-  };
+  var heroNames = ['ALEXANDER', 'BARRETT'];
+  if (heroNames.includes(getHeroName()) === false) {
+    window.location.replace('/');
+  }
 
   var updateStatTable = function(stats) {
     var table = document.querySelector('table');
@@ -44,18 +33,12 @@
 
   var request = new XMLHttpRequest();
   request.onreadystatechange = function() {
-    if (request.readyState === XMLHttpRequest.DONE) {
-      if (request.status === 200) {
-        var response = JSON.parse(request.response);
-        var heroName = getHeroName().toUpperCase();
-        document.getElementById('hero-title').textContent = heroName;
-        var stats = getStats(heroName, response);
-        updateStatTable(stats);
-      }
-    } else {
-      // Return the dummy data since no data is available.
+    if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+      var response = JSON.parse(request.response);
+      document.getElementById('hero-title').textContent = getHeroName();
+      updateStatTable(response);
     }
   };
-  request.open('GET', '/stat.json');
+  request.open('GET', '/datas/' + getHeroName() + '.json');
   request.send();
 })();
