@@ -1,4 +1,5 @@
 /* eslint-env browser */
+/* eslint max-len: 0 */
 (function() {
   'use strict';
 

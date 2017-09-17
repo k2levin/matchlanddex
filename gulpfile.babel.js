@@ -138,6 +138,7 @@ gulp.task('scripts', function () {
         console.error('Error in compress task', err.toString());
       })
 });
+
 gulp.task('scripts2', function () {
     function createErrorHandler(name) {
       return function (err) {
@@ -146,7 +147,11 @@ gulp.task('scripts2', function () {
     }
 
     gulp.src([
+      // Note: Since we are not using useref in the scripts build pipeline,
+      //       you need to explicitly list your scripts here in the right order
+      //       to be correctly concatenated
       './app/scripts/hero.js'
+      // Other scripts
     ])
       .on('error', createErrorHandler('gulp.src'))
       .pipe($.newer('.tmp/scripts'))

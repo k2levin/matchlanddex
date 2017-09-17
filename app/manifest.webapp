@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "Match Land Dex",
+  "name": "MatchLandDex",
   "launch_path": "/index.html",
   "description": "Info dex for Match Land.",
   "icons": {
@@ -18,7 +18,7 @@
   },
   "locales": {
     "en": {
-      "name": "Match Land Dex",
+      "name": "MatchLandDex",
       "description": "Info dex for Match Land."
     }
   }
