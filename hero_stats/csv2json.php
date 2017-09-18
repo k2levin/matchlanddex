@@ -1,9 +1,6 @@
 <?php
 
-$files = [
-    'ALEXANDER',
-    'BARRETT',
-];
+$files = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
 
 foreach ($files as $file) {
     $data_csv_file = fopen($file.'.csv', 'r') or die("Unable to open file!");

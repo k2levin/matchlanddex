@@ -7,10 +7,12 @@
     return window.location.search.substr(6).toUpperCase();
   };
 
-  var heroNames = ['ALEXANDER', 'BARRETT'];
+  var heroNames = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
   if (heroNames.includes(getHeroName()) === false) {
     window.location.replace('/');
   }
+  document.getElementById('hero-img').src = 'images/' + getHeroName() + '.png';
+  document.getElementById('hero-img').alt = getHeroName();
 
   var updateStatTable = function(stats) {
     var table = document.querySelector('table');
