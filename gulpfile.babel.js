@@ -68,6 +68,16 @@ gulp.task('copy', () =>
     .pipe($.size({title: 'copy'}))
 );
 
+// Copy all files at the /app/datas folder level
+gulp.task('copy_datas', () =>
+  gulp.src([
+    'app/datas/**/*',
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/datas'))
+    .pipe($.size({title: 'copy_datas'}))
+);
+
 // Compile and automatically prefix stylesheets
 gulp.task('styles', () => {
   const AUTOPREFIXER_BROWSERS = [
@@ -243,7 +253,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'scripts2', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'scripts2', 'images', 'copy', 'copy_datas'],
     'generate-service-worker',
     cb
   )

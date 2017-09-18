@@ -11,6 +11,7 @@ foreach ($files as $file) {
     while (($csvs[] = fgetcsv($data_csv_file, 1000, ',')) !== FALSE) {
         // DO NOTHING
     }
+    array_pop($csvs);
     $datas = [];
     $column_names = [];
     foreach ($csvs[0] as $single_csv) {
