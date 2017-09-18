@@ -8,20 +8,11 @@
         ],
         "headers": [
             {
-                "source": "**/*.@(html|css|js)",
+                "source": "**/*.@(html|css|js|json)",
                 "headers": [
                     {
                         "key": "Cache-Control",
-                        "value": "max-age=300"
-                    }
-                ]
-            },
-            {
-                "source": "**/*.@(json)",
-                "headers": [
-                    {
-                        "key": "Cache-Control",
-                        "value": "no-cache"
+                        "value": "max-age=600"
                     }
                 ]
             }
