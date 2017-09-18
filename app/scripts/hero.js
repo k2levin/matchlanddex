@@ -11,6 +11,7 @@
   if (heroNames.includes(getHeroName()) === false) {
     window.location.replace('/');
   }
+
   document.getElementById('hero-img').src = 'images/' + getHeroName() + '.png';
   document.getElementById('hero-img').alt = getHeroName();
 
