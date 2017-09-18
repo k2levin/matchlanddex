@@ -9,7 +9,7 @@
 
   var heroNames = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
   if (heroNames.includes(getHeroName()) === false) {
-    window.location.replace('404.html');
+    window.location.replace('/');
   }
   document.getElementById('hero-img').src = 'images/' + getHeroName() + '.png';
   document.getElementById('hero-img').alt = getHeroName();
