@@ -9,7 +9,7 @@
 
   var heroNames = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
   if (heroNames.includes(getHeroName()) === false) {
-    window.location.replace('/');
+    window.location.replace('404.html');
   }
   document.getElementById('hero-img').src = 'images/' + getHeroName() + '.png';
   document.getElementById('hero-img').alt = getHeroName();
@@ -41,6 +41,6 @@
       updateStatTable(response);
     }
   };
-  request.open('GET', '/datas/' + getHeroName() + '.json');
+  request.open('GET', 'datas/' + getHeroName() + '.json');
   request.send();
 })();
