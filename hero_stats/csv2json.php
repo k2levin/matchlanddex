@@ -1,9 +1,10 @@
 <?php
 
-$files = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
+$hero_names = ['ALEXANDER', 'BARRETT', 'FENRUS', 'JADE', 'PRIMM'];
+$hero_stats = [];
 
-foreach ($files as $file) {
-    $data_csv_file = fopen($file.'.csv', 'r') or die("Unable to open file!");
+foreach ($hero_names as $name) {
+    $data_csv_file = fopen($name.'.csv', 'r') or die("Unable to open file!");
     $csvs = [];
     while (($csvs[] = fgetcsv($data_csv_file, 1000, ',')) !== FALSE) {
         // DO NOTHING
@@ -22,11 +23,11 @@ foreach ($files as $file) {
             $datas[$key-1][$column_name] = $csv[$column_key];
         }
     }
-    $json = json_encode($datas);
+    $hero_stats[$name] = $datas;
     fclose($data_csv_file);
-    // var_dump($json);die();
-
-    $data_json_file = fopen('../app/datas/'.$file.'.json', 'w') or die("Unable to open file!");
-    fwrite($data_json_file, $json);
-    fclose($data_json_file);
 }
+
+$data_json_file = fopen('../app/datas/hero.json', 'w') or die("Unable to open file!");
+$json = json_encode($hero_stats);
+fwrite($data_json_file, $json);
+fclose($data_json_file);

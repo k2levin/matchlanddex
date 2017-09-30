@@ -39,9 +39,9 @@
     if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
       var response = JSON.parse(request.response);
       document.getElementById('hero-title').textContent = getHeroName();
-      updateStatTable(response);
+      updateStatTable(response[getHeroName()]);
     }
   };
-  request.open('GET', 'datas/' + getHeroName() + '.json');
+  request.open('GET', 'https://s3-ap-southeast-1.amazonaws.com/matchland/datas/hero.json');
   request.send();
 })();
