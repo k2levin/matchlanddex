@@ -27,7 +27,7 @@ foreach ($hero_names as $name) {
     fclose($data_csv_file);
 }
 
-$data_json_file = fopen('../app/datas/hero.json', 'w') or die("Unable to open file!");
+$data_json_file = fopen('../app/hero.json', 'w') or die("Unable to open file!");
 $json = json_encode($hero_stats);
 fwrite($data_json_file, $json);
 fclose($data_json_file);

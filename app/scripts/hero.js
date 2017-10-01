@@ -14,6 +14,7 @@
 
   document.getElementById('hero-img').src = 'images/' + getHeroName() + '.png';
   document.getElementById('hero-img').alt = getHeroName();
+  document.getElementById('hero-title').textContent = getHeroName();
 
   var updateStatTable = function(stats) {
     var table = document.querySelector('table');
@@ -34,14 +35,25 @@
     });
   };
 
-  var request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
-    if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-      var response = JSON.parse(request.response);
-      document.getElementById('hero-title').textContent = getHeroName();
-      updateStatTable(response[getHeroName()]);
+  var networkDataReceived = false;
+  var networkUpdate = fetch('/hero.json').then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    networkDataReceived = true;
+    updateStatTable(data[getHeroName()]);
+  });
+
+  // fetch cached data
+  caches.match('/hero.json').then(function(response) {
+    if (!response) {
+      throw Error('No data');
     }
-  };
-  request.open('GET', 'https://s3-ap-southeast-1.amazonaws.com/matchland/datas/hero.json');
-  request.send();
+    return response.json();
+  }).then(function(data) {
+    if (!networkDataReceived) {
+      updateStatTable(data[getHeroName()]);
+    }
+  }).catch(function() {
+    return networkUpdate;
+  });
 })();
